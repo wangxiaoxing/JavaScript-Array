@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //数组的排序去重
+    var aLength = 3;
+    var bLength = 3;
+    var aArray = [1,2,5];
+    var bArray = [2,4,6];
+
+    var temp=(aArray.concat(bArray)).sort(function(value1,value2){
+        return value1-value2;
+    });
+    var result=[];
+    var obj={};
+    for(let i=0;i<temp.length;i++){
+        if(!obj[temp[i]]){
+            result.push(temp[i]);
+            obj[temp[i]]=1;
+        }
+
+    }
+    console.log(result.toString().replace(/,/g," "));
+</script>
+</body>
+</html>

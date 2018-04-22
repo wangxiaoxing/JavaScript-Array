@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //随机生成一个0-9 的20位数组a 
+    var a=[];
+    for(var i=0;i<20;i++){
+        a.push(Math.floor(Math.random()*10));
+    }
+    //随机删除数组中一个生成新数组b
+    var temp=a.concat();
+    var index=Math.floor(Math.random()*20);
+    temp.splice(index,1);
+    var b=temp.concat();
+    //将数组顺序打乱生成新数组 c 
+    var c=[];
+    for(var j=0;j<19;j++){
+        var pos=Math.floor(Math.random()*(19-j));
+        c[j]=b[pos];
+        b.splice(pos,1);
+    }
+    console.log(a);
+    console.log(c);
+    //)将a与c比较，找到被删除的一位
+    function compare(value1,value2) {
+        return value1-value2;
+    }
+    a.sort(compare);
+    c.sort(compare);
+    function difference() {
+        for(var k=0;k<=c.length;k++){
+            if(k==c.length){
+                return a[k];
+            }else if((a[k]!==c[k])){
+                return a[k];
+            }
+        }
+    }
+    console.log(difference());
+
+//    let a = getArr();
+//    let b = null;
+//    let c = getC(a);
+//    let d = getDiff(a,c);
+//    console.log(b);
+//    console.log(d);
+//    function getArr() {
+//        let res = [];
+//        for (let i = 0; i < 20; i++) {
+//            res.push(parseInt(Math.random() * 10));
+//        }
+//        return res;
+//    }
+//    function getC(a){
+//        let c = a.slice(0, a.length)
+//        while (i >= 0) {
+//            if (i == 20) {
+//                i == 0;
+//                continue;
+//            }
+//            let ran = Math.random();
+//            if (ran > 0.5) {
+//                b = c[i];
+//                c.splice(i, 1);
+//                i == -1;
+//                break;
+//            }
+//            i++;
+//        }
+//        c = shuffle(c);
+//        return c;
+//    }
+//    function shuffle(arr) {
+//        var length = arr.length,//数组的长度
+//            randomIndex,//随机产生的index
+//            temp;//临时存储变量
+//        while (length) {
+//            randomIndex = Math.floor(Math.random() * (length--));//数组未变换长度以内的index
+//            temp = arr[randomIndex];//存储随机index的值
+//            arr[randomIndex] = arr[length];
+//            arr[length] = temp//数组最后一个值变为随机取出的一个
+//        }
+//        return arr;
+//    }
+//    function getDiff(a, c) {
+//        let res = null;
+//        for (let i = 0; i < a.length; i++) {
+//            let ind =c.indexOf(a[i]);
+//            if(ind==-1){
+//                res = a[i];//没有当前元素,那么就是被删除的那个
+//            }else{
+//                c.splice(ind,1);
+//            }
+//        }
+//        return res;
+//    }
+
+</script>
+</body>
+</html>

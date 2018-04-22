@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    Array.prototype.uniq = function () {
+        var result=[];
+        var flag=true;
+        for(var i=0;i<this.length;i++){
+                if((result.indexOf(this[i]))==-1){
+                    //针对NaN
+                    if(this[i]!==this[i]){
+                        if(flag){
+                            result.push(this[i]);
+                            flag=false;
+                        }
+                    }else {
+                        result.push(this[i]);
+                    }
+                }
+            }
+        return result;
+    }
+    var arr=[false, true, undefined, null, NaN, 0, 1, {}, {}, 'a', 'a', NaN];
+    console.log(arr.uniq());
+</script>
+</body>
+</html>
