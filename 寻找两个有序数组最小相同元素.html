@@ -6,10 +6,8 @@
 </head>
 <body>
 <script>
-    const a = [1, 2, 5, 9, 10];
+   const a = [1, 2, 5, 9, 10];
     const b = [3, 6, 4, 10, 9];
-
-    console.log(c);
     function compare(value1,value2) {
         return value1-value2;
     }
@@ -17,8 +15,16 @@
     b.sort(compare);
     console.log(a);
     console.log(b);
-
-
+    function findMin(a,b) {
+        for(let i=0;i<a.length;i++){
+            for(let j=0;j<b.length;j++){
+                if(a[i]===b[j]){
+                    return a[i];
+                }
+            }
+        }
+    }
+    console.log(findMin(a,b));
 </script>
 </body>
 </html>
