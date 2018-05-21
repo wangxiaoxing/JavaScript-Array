@@ -26,6 +26,21 @@
     }
     var arr=[false, true, undefined, null, NaN, 0, 1, {}, {}, 'a', 'a', NaN];
     console.log(arr.uniq());
+    
+    //利用set数据结构去重,结果与方法一相同,在set内部，两个NaN是相等的，两个对象总是不相等的
+    const s=new Set();
+    [false, true, undefined, null, NaN, 0, 1, {}, {}, 'a', 'a', NaN].forEach(x=>s.add(x));
+    //将set转换为数组
+    let result=[...s];
+    console.log(result);
+
+    //更加简单的写法
+    const set=[...new Set([false, true, undefined, null, NaN, 0, 1, {}, {}, 'a', 'a', NaN])];
+    console.log(set);
+
+    //还有一种写法
+    const array=Array.from(new Set([false, true, undefined, null, NaN, 0, 1, {}, {}, 'a', 'a', NaN]));
+    console.log(array);
 </script>
 </body>
 </html>
