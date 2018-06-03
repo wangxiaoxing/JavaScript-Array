@@ -20,6 +20,34 @@
     }
     selectNum(arr);
     console.log(result);
+    
+    
+    //ES6实现平推数组
+    function* iterArray(arr){
+        if(Array.isArray(arr)){
+            for(let i=0;i<arr.length;i++){
+                yield* iterArray(arr[i]);
+            }
+        }else{
+            yield arr;
+        }
+    }
+
+
+    //ES6实现平推数组二
+    function* iterArray(arr) {
+        var length=arr.length;
+        for(let i=0;i<length;i++){
+            if(Array.isArray(arr[i])){
+                yield* iterArray(arr[i]);
+            }else{
+                yield arr[i];
+            }
+        }
+    }
+
+    var result=[...iterArray(arr)];
+    console.log(result);
 </script>
 </body>
 </html>
